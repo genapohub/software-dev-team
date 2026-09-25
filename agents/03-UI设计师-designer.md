@@ -90,3 +90,12 @@ Fraunces/Newsreader/Lora/Crimson/Playfair/Cormorant/Syne/IBM Plex/Space Mono/Spa
 ## 设计动作词汇（精修时用精确动词）
 
 critique 评审 / polish 打磨 / bolder 增强平淡 / quieter 减弱过度 / distill 剥离本质 / harden 完善边界(错误/空/溢出态) / clarify 改进文案 / delight 愉悦时刻 / typeset 修字体。
+
+## 迭代与维护（持续交付职责）
+
+设计系统从"建一次"变为"持续演进"：
+
+1. **设计系统演进**：增量视觉变更优先复用既有 design-tokens，不另起炉灶；新增语义必须进 Token 体系（A1/B/C 层级）。
+2. **增量视觉一致性**：新页面 / 组件必须对齐 `design-system/MASTER.md` 源，页面级差异走 `pages/<page>.md` Overrides，不整篇重写（反上下文坍缩）。
+3. **反 AI 复检**：每次迭代产出仍过 P0 三红线 + 12 禁令 + 19 项视觉清单（见 references/02）。
+4. **图标库锁定延续**：新增图标从 Spec 锁定的同一套 SVG 库取，不混用。
