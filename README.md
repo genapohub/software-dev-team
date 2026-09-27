@@ -1,11 +1,19 @@
-# 复合一体化产品团队 — mvp-expert-team
+# 软件开发团队 — software-dev-team
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-2.0.0-green.svg)](SKILL.md)
 
-一个面向 AI 编程助手的 **复合一体化产品团队 Skill**——项目总监统筹 7 位领域专家（产品经理 / 首席架构师 / UI设计师 / 前端工程师 / 后端工程师 / 测试工程师 / 运维工程师）。**既能从一句话想法做 MVP 快速开发与原型验证（端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发 / 缺陷修复 / 灰度发布 / 长期运维）。** 阶段门禁 + 团队级 P0 反 AI 规则，自包含、不依赖任何其他 Skill。
+一个面向 AI 编程助手的 **软件开发团队 Skill**——项目总监统筹 7 位领域专家（产品经理 / 首席架构师 / UI设计师 / 前端工程师 / 后端工程师 / 测试工程师 / 运维工程师）。**既能从一句话想法做 MVP 快速开发与原型验证（端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发 / 缺陷修复 / 灰度发布 / 长期运维）。** 阶段门禁 + 团队级 P0 反 AI 规则，自包含、不依赖任何其他 Skill。
 
 > 2026-09-25 融合 WorkBuddy「软件开发团队 software-company」专家，在原 MVP 专家团基础上补齐「MVP 交付不是终点」的迭代维护闭环。详见 `references/expert-distill/software-company-蒸馏.md`。
+
+## 协同优先级：项目根 AGENTS.md > 本技能 > PACT 子流程
+
+- 开工前先读取项目根 `AGENTS.md`（或上级工作区 `agents.md`）；项目根的目录、命名、验收、记忆和安全红线优先于本技能。
+- 本技能定位为**交付编排层**：负责判断 Track、调度 PM/架构/UI/前端/后端/QA/运维角色、执行阶段门禁，不重新定义项目根目录体系。
+- 进入页面、接口、Mock、联调相关工作时，内嵌 PACT 契约子流程：`PRD → 页面设计契约 → API 契约 → 前端 Mock → 后端 API → 联调验收`。
+- 页面、接口、字段、流程变化必须先更新契约，再改代码；测试证据归档到项目根约定的测试目录，最终验收和复盘归档到项目根约定的其它文档目录。
+- 如果项目根规范与本技能内示例路径冲突，以项目根 `AGENTS.md` 为准，并在交付说明中标明采用的目录映射。
 
 ## 能力
 
@@ -16,6 +24,17 @@
 - **测试反作弊门 + 智能路由**：先写测试（写测试的 ≠ 写代码的）+ 5 类作弊检测 + P0 缺陷归零才上线；迭代期智能路由裁决（源码 bug→工程 / 测试 bug→自修 / 全过→NoOne，≤2 轮封顶）
 - **增量开发纪律**：既有代码上最小变更、保留既有行为、回归率=0，拒绝"凭空重写"
 - **两种执行模式**：多代理编排（子代理并行）/ 单代理角色切换（换视角自审），产出与门禁一致
+
+### PACT 契约嵌入规则
+
+| 场景 | 执行要求 | 输出边界 |
+|---|---|---|
+| Track A 从零开发 | Phase 1.5 Spec 锁定后，进入页面设计契约与 API 契约；前端实现前先确认是否需要 Ardot/Figma UI | 页面契约、Design Token、API 契约、openapi、Mock 验证、联调记录 |
+| Track B 产品迭代 | I-0 先做影响范围定位：PRD、页面契约、API、数据模型、前端、后端、测试哪些要改 | 增量需求卡、契约变更清单、回归测试清单 |
+| Track C BugFix | 先分类：UI / 接口 / 数据 / 权限 / 部署；再回到对应契约和测试用例 | 修复说明、最小变更、回归证据 |
+| 局部任务 | 如果只做页面/API/联调，也要遵守契约先行 | 对应契约文件与验收证据 |
+
+BugFix 回归路由：UI 问题归 `05-UIUX设计` 与 UIUX 验收；接口问题归技术文档与接口测试；主流程问题必须补全量/回归测试；部署问题归部署文档与健康检查证据。实际目录名称以项目根 `AGENTS.md` 为准。
 
 ## 团队构成（自包含 7 角色）
 
@@ -45,13 +64,13 @@
 
 **方式一：克隆到 skills 目录**
 ```bash
-git clone https://github.com/genapohub/mvp-expert-team.git ~/.workbuddy/skills/mvp-expert-team
+git clone https://github.com/genapohub/software-dev-team.git ~/.workbuddy/skills/software-dev-team
 ```
 
 **方式二：ZIP导入**
 ```bash
-git clone https://github.com/genapohub/mvp-expert-team.git
-zip -r mvp-expert-team.zip mvp-expert-team/
+git clone https://github.com/genapohub/software-dev-team.git
+zip -r software-dev-team.zip software-dev-team/
 ```
 然后在 WorkBuddy 桌面端 → **技能市场** → **添加技能/上传技能** → **点击"跳过检测，直接安装"**。
 
@@ -59,36 +78,36 @@ zip -r mvp-expert-team.zip mvp-expert-team/
 
 **ZIP 导入**
 ```bash
-git clone https://github.com/genapohub/mvp-expert-team.git
+git clone https://github.com/genapohub/software-dev-team.git
 ```
-然后在 Trae → **设置** → **Rules & Skills** → **创建** → 上传 `mvp-expert-team.zip`。
+然后在 Trae → **设置** → **Rules & Skills** → **创建** → 上传 `software-dev-team.zip`。
 
 ### Codex / ZCode
 
 ```bash
 # 克隆到 skills 目录
-git clone https://github.com/genapohub/mvp-expert-team.git ~/.codex/skills/mvp-expert-team
+git clone https://github.com/genapohub/software-dev-team.git ~/.codex/skills/software-dev-team
 
 # ZCode
-git clone https://github.com/genapohub/mvp-expert-team.git ~/.zcode/skills/mvp-expert-team
+git clone https://github.com/genapohub/software-dev-team.git ~/.zcode/skills/software-dev-team
 ```
 
-重启 Codex / ZCode 客户端后自动发现。也可以在对话中输入 `$mvp-expert-team` 手动调用。
+重启 Codex / ZCode 客户端后自动发现。也可以在对话中输入 `$software-dev-team` 手动调用。
 
 ### Cursor
 ```bash
 # 克隆到 skills 目录
-git clone https://github.com/genapohub/mvp-expert-team.git ~/.cursor/skills-cursor/mvp-expert-team
+git clone https://github.com/genapohub/software-dev-team.git ~/.cursor/skills-cursor/software-dev-team
 ```
 
-重启 Cursor客户端 后自动发现。也可以在对话中输入 `$mvp-expert-team` 手动调用。
+重启 Cursor客户端 后自动发现。也可以在对话中输入 `$software-dev-team` 手动调用。
 
 ---
 
 ## 仓库结构
 
 ```
-mvp-expert-team/
+software-dev-team/
 ├── SKILL.md                     # 项目总监主控：定位/P0红线/快速路径/执行模式/6阶段/角色索引/门禁
 ├── README.md                    # 本文件
 ├── LICENSE                      # MIT
@@ -153,7 +172,7 @@ Phase 4 测试交付（P0 归零 → 部署 → 交付包）
 
 ## 来源与致谢
 
-本技能承载 WorkBuddy「MVP开发专家团」专家包 v2.1.0（大湾区靓仔 × 7 专家团队）的完整方法论，2026-09-06 整理为独立技能；2026-09-25 融合 WorkBuddy「软件开发团队 software-company」专家，补齐增量开发 / 缺陷修复 / 测试智能路由 / 产品生命周期闭环，升级为复合一体化产品团队 v2.0.0。工程纪律部分源自该专家包内嵌的 UmaDev 知识库方法论（MIT License，详见 `references/03-工程纪律与自检.md`）。内容剔除多 Agent 环境专属机制（Team spawn / SendMessage / IMA MCP），适配多代理与单代理两种执行模式。融合溯源见 `references/expert-distill/software-company-蒸馏.md`。
+本技能承载 WorkBuddy「软件开发团队」专家包 v2.1.0（大湾区靓仔 × 7 专家团队）的完整方法论，2026-09-06 整理为独立技能；2026-09-25 融合 WorkBuddy「软件开发团队 software-company」专家，补齐增量开发 / 缺陷修复 / 测试智能路由 / 产品生命周期闭环，升级为软件开发团队 v2.0.0。工程纪律部分源自该专家包内嵌的 UmaDev 知识库方法论（MIT License，详见 `references/03-工程纪律与自检.md`）。内容剔除多 Agent 环境专属机制（Team spawn / SendMessage / IMA MCP），适配多代理与单代理两种执行模式。融合溯源见 `references/expert-distill/software-company-蒸馏.md`。
 
 ## 许可
 

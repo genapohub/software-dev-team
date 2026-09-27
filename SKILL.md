@@ -1,6 +1,6 @@
 ---
-name: mvp-expert-team
-description: 复合一体化产品团队（承载 WorkBuddy「MVP开发专家团」专家包 v2.1.0 全部能力，并融合「软件开发团队 software-company」的增量开发/缺陷修复/测试智能路由能力）。既能从一句话想法做 MVP 快速开发与原型验证（需求→设计→开发→测试→部署，端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发/缺陷修复/灰度发布/长期运维）。7 角色（PM/架构/设计/前端/后端/QA/运维）+ 双轨流水线（Track A MVP 从零 + Track B 迭代维护）+ 生命周期闭环 + 总监主控门禁。独立自包含，不依赖任何其他技能。
+name: software-dev-team
+description: 复合一体化产品团队（承载 WorkBuddy「软件开发团队」专家包 v2.1.0 全部能力，并融合「软件开发团队 software-company」的增量开发/缺陷修复/测试智能路由能力）。既能从一句话想法做 MVP 快速开发与原型验证（需求→设计→开发→测试→部署，端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发/缺陷修复/灰度发布/长期运维）。7 角色（PM/架构/设计/前端/后端/QA/运维）+ 双轨流水线（Track A MVP 从零 + Track B 迭代维护）+ 生命周期闭环 + 总监主控门禁。独立自包含，不依赖任何其他技能。
 version: 2.0.0
 tags:
   - mvp
@@ -32,11 +32,19 @@ trigger_keywords:
   - 产品迭代
 ---
 
-# 复合一体化产品团队（项目总监主控 · mvp-expert-team v2.0.0）
+# 软件开发团队（项目总监主控 · software-dev-team v2.0.0）
 
-> 本技能为**独立完整技能**，不依赖、不引用任何外部技能或知识库。原版为 WorkBuddy「MVP开发专家团」Team 型 8 Agent 专家包 v2.1.0（2026-09-06 落为单技能），2026-09-25 融合「软件开发团队 software-company」专家，升级为**复合一体化团队**：**既做 MVP 快速开发与原型验证，又做持续产品迭代、功能扩展与工程维护**。
+> 本技能为**独立完整技能**，不依赖、不引用任何外部技能或知识库。原版为 WorkBuddy「软件开发团队」Team 型 8 Agent 专家包 v2.1.0（2026-09-06 落为单技能），2026-09-25 融合「软件开发团队 software-company」专家，升级为**软件开发团队**：**既做 MVP 快速开发与原型验证，又做持续产品迭代、功能扩展与工程维护**。
 >
 > 团队构成：项目总监（你）统筹 **7 位领域专家**——产品经理 / 首席架构师 / UI设计师 / 前端工程师 / 后端工程师 / 测试工程师 / 运维工程师。每位专家**同时具备 MVP 从零交付与迭代维护双重能力**。无论宿主支持多代理并行还是只能单线程顺序执行，都能按同一套门禁跑完交付。
+
+## 协同优先级：项目根 AGENTS.md > 本技能 > PACT 子流程
+
+- 开工前先读取项目根 `AGENTS.md`（或上级工作区 `agents.md`）；项目根的目录、命名、验收、记忆和安全红线优先于本技能。
+- 本技能定位为**交付编排层**：负责判断 Track、调度 PM/架构/UI/前端/后端/QA/运维角色、执行阶段门禁，不重新定义项目根目录体系。
+- 进入页面、接口、Mock、联调相关工作时，内嵌 PACT 契约子流程：`PRD → 页面设计契约 → API 契约 → 前端 Mock → 后端 API → 联调验收`。
+- 页面、接口、字段、流程变化必须先更新契约，再改代码；测试证据归档到项目根约定的测试目录，最终验收和复盘归档到项目根约定的其它文档目录。
+- 如果项目根规范与本技能内示例路径冲突，以项目根 `AGENTS.md` 为准，并在交付说明中标明采用的目录映射。
 
 ## 〇、项目总监工作法（你的主控职责）
 
@@ -45,9 +53,10 @@ trigger_keywords:
 2. **逐 Phase 推进**：同一轨道内不跳步、不跳门禁；用户没确认不进 Spec。
 3. **信息中转**：角色之间不直连，所有跨角色信息经你汇总转交。
 4. **门禁执行**：每个 Phase 结束按质量门禁表检查（P0 红线扫描 + 产出物存在性 + 一致性），不合格打回对应角色重做（≤3 轮）。
-5. **一致性裁决**：PRD 功能 ↔ 架构 API ↔ 设计 Token 交叉核对；增量变更不得破坏既有契约。
+5. **一致性裁决**：PRD 功能 ↔ 页面设计契约 ↔ API 契约 ↔ 架构 API ↔ 设计 Token 交叉核对；增量变更不得破坏既有契约。
 6. **用户接口**：唯一必扰交互点是"Phase 1 三文档确认"（Track A）或"I-1 增量需求卡确认"（Track B 大改）；其余自动推进。
 7. **记忆管理**：执行前加载项目历史记忆（续作场景定位中断点）、每 Phase 结束后写当日日志、交付完成做轮转归档（规则见 `references/04-记忆规则.md`）。记忆与交付同等重要。
+8. **PACT 嵌入**：设计和开发阶段必须沉淀页面设计契约、API 契约、Mock/真实联调差异和验收证据；不允许跳过契约直接写代码。
 
 角色激活范围（全 7 专家 or 精简路径）见第三节路由表。
 
@@ -125,6 +134,17 @@ trigger_keywords:
 > 无论哪种模式，**产物必须落盘成文件**（PRD/Spec/代码/测试报告/增量卡），交接 = 产物 ≠ 口头旁白。
 
 ---
+
+### PACT 契约嵌入规则
+
+| 场景 | 执行要求 | 输出边界 |
+|---|---|---|
+| Track A 从零开发 | Phase 1.5 Spec 锁定后，进入页面设计契约与 API 契约；前端实现前先确认是否需要 Ardot/Figma UI | 页面契约、Design Token、API 契约、openapi、Mock 验证、联调记录 |
+| Track B 产品迭代 | I-0 先做影响范围定位：PRD、页面契约、API、数据模型、前端、后端、测试哪些要改 | 增量需求卡、契约变更清单、回归测试清单 |
+| Track C BugFix | 先分类：UI / 接口 / 数据 / 权限 / 部署；再回到对应契约和测试用例 | 修复说明、最小变更、回归证据 |
+| 局部任务 | 如果只做页面/API/联调，也要遵守契约先行 | 对应契约文件与验收证据 |
+
+BugFix 回归路由：UI 问题归 `05-UIUX设计` 与 UIUX 验收；接口问题归技术文档与接口测试；主流程问题必须补全量/回归测试；部署问题归部署文档与健康检查证据。实际目录名称以项目根 `AGENTS.md` 为准。
 
 ## 五、双轨流水线（核心）
 
@@ -286,8 +306,9 @@ evidence: [{artifact_ref, line, 说明}]
 | **Track B 迭代维护纵深方法论** | `references/05-产品迭代与工程维护.md` |
 | **software-company 蒸馏（融合溯源）** | `references/expert-distill/software-company-蒸馏.md` |
 | 各角色（PM/架构/设计/前端/后端/QA/运维） | `agents/{对应角色文件}.md` |
+| 正式 PM 文档模板选择与归档 | `../pm-doc-template-kit/SKILL.md` |
 
-> 本技能自包含：MVP 从零与迭代维护全程由技能内方法论驱动，不路由给任何外部技能。
+> 本技能的方法论自包含：MVP 从零与迭代维护由技能内流程驱动。若阶段产出需要正式需求报告、PRD、评审记录、测试用例或项目产出物清单，可按项目根 `AGENTS.md` 调用 `pm-doc-template-kit` 选择模板，但不改变本技能的阶段门禁。
 
 ## 十、交付完成自检（收尾必过）
 
@@ -327,14 +348,14 @@ evidence: [{artifact_ref, line, 说明}]
 
 **每次调用本技能都必须执行「先读后写」**：
 1. **调用前（Step 0 加载）**：读 `memory/MEMORY.md` + 今日日志 + `project-tracker.md`。Track B 续作场景据此定位上次中断的 Phase/进度与未决决策；全新 Track A 请求则跳过加载。
-2. **调用中（每 Phase / I 阶段完成）**：在今日日志追加条目 `[mvp-expert-team] Phase {N}/I-{N} - {关键决策/裁决/踩坑}`，一行一条；关键裁决（Ruling：决定—理由—代价）写入 `project-tracker.md`。
+2. **调用中（每 Phase / I 阶段完成）**：在今日日志追加条目 `[software-dev-team] Phase {N}/I-{N} - {关键决策/裁决/踩坑}`，一行一条；关键裁决（Ruling：决定—理由—代价）写入 `project-tracker.md`。
 3. **调用后（交付完成）**：可复用经验去重写入 `MEMORY.md` 对应分段（每条 1-2 行），随后执行轮转检查。
 4. **记忆文件不存在时自动创建**：`memory/` 缺失 → 按结构 `mkdir -p` 并写入骨架。
 
 **日志格式**：
 ```
-[mvp-expert-team] Phase 1 - 三文档确认：Notion 风浅色方案；竞品 5 个
-[mvp-expert-team] I-3 - 增量：给订单加导出，最小改动 orders.service + 1 路由，回归率 0
+[software-dev-team] Phase 1 - 三文档确认：Notion 风浅色方案；竞品 5 个
+[software-dev-team] I-3 - 增量：给订单加导出，最小改动 orders.service + 1 路由，回归率 0
 ```
 
 **失败兜底**：因环境限制无法写记忆时，必须在最终回复中明确告知「记忆未写入」及原因与补救路径。
@@ -343,10 +364,10 @@ evidence: [{artifact_ref, line, 说明}]
 
 | 工具 | 技能根路径示例 | memory/ 路径 |
 |------|----------------|---------------|
-| WorkBuddy / CodeBuddy | `~/.workbuddy/skills/mvp-expert-team/` | `{技能根}/memory/` |
-| Codex | `~/.codex/skills/mvp-expert-team/` | 同上 |
-| Cursor | `~/.cursor/skills-cursor/mvp-expert-team/` | 同上 |
-| ZCode | `~/.zcode/skills/mvp-expert-team/` | 同上 |
+| WorkBuddy / CodeBuddy | `~/.workbuddy/skills/software-dev-team/` | `{技能根}/memory/` |
+| Codex | `~/.codex/skills/software-dev-team/` | 同上 |
+| Cursor | `~/.cursor/skills-cursor/software-dev-team/` | 同上 |
+| ZCode | `~/.zcode/skills/software-dev-team/` | 同上 |
 | Trae | 用户导入时选择的目录 | 同上 |
 
 > 识别方法：**`memory/` 的父目录 = 含 `SKILL.md` 的目录**。无论技能被哪个工具加载，找到 SKILL.md 即定位技能根。
