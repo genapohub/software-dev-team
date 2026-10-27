@@ -1,7 +1,7 @@
 ---
 name: software-dev-team
-description: 复合一体化产品团队（承载 WorkBuddy「软件开发团队」专家包 v2.1.0 全部能力，并融合「软件开发团队 software-company」的增量开发/缺陷修复/测试智能路由能力）。既能从一句话想法做 MVP 快速开发与原型验证（需求→设计→开发→测试→部署，端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发/缺陷修复/灰度发布/长期运维）。7 角色（PM/架构/设计/前端/后端/QA/运维）+ 双轨流水线（Track A MVP 从零 + Track B 迭代维护）+ 生命周期闭环 + 总监主控门禁。独立自包含，不依赖任何其他技能。
-version: 2.1.1
+description: 一体化产品团队：一句话想法做 MVP 从零开发，也做产品迭代与 BugFix 维护。7 角色双轨流水线（MVP/迭代）+ 总监主控门禁，自包含。
+version: 2.1.2
 tags:
   - mvp
   - full-stack
@@ -32,7 +32,7 @@ trigger_keywords:
   - 产品迭代
 ---
 
-# 软件开发团队（项目总监主控 · software-dev-team v2.1.0）
+# 软件开发团队（项目总监主控 · software-dev-team v2.1.2）
 
 > 本技能为**独立完整技能**，不依赖、不引用任何外部技能或知识库。原版为 WorkBuddy「软件开发团队」Team 型 8 Agent 专家包 v2.1.0（2026-09-06 落为单技能），2026-09-25 融合「软件开发团队 software-company」专家，升级为**软件开发团队**：**既做 MVP 快速开发与原型验证，又做持续产品迭代、功能扩展与工程维护**。
 >
@@ -188,7 +188,7 @@ Phase 4.1 真实运营加固 ── 四级证据链（代码/运行/业务/生�
 
 - **Phase 0 需求澄清**：启动横幅 → 内部分析 → 一次性问完 6 项 check list（目标用户/场景/不做的后果/参照/技术约束/平台端）→ 总结为 3 句话核心需求，用户确认进 Phase 1。
 - **Phase 1 并行调研**：PM（≥3 直接+≥2 替代竞品，重点看差评）/ 架构师（≥3 方案选型矩阵）/ 设计师（≥3 竞品 UI，锁定对标品牌+图标库）。主控做一致性检查后进用户确认。
-- **Phase 1.5 Spec 锁定**：12 章（产品定义→MVP范围RICE→明确不做→技术架构→API清单→DB清单→页面清单→设计Token→EARS验收→边界约束→内嵌已知坑→端到端验证）。Spec 变更：小改走变更记录，大改回 Phase 0。
+- **Phase 1.5 Spec 锁定**：12 章＋变更记录附录（产品定义→MVP范围RICE→明确不做→技术架构→API清单→DB清单→页面清单→设计Token→EARS验收→边界约束→内嵌已知坑→端到端验证）。Spec 变更：小改走变更记录附录，大改回 Phase 0。
 - **Phase 2 设计细化**：架构师 openapi.yaml + API/DB 详设；设计师 design-tokens + DESIGN.md（9 节）+ 页面提示词。**机器可读产物是硬门槛**：无 openapi.yaml / design-tokens.json 不放行 Phase 3。**UI 设计稿分流**：涉及新页面/新交互流程/需评审确认 → 动手实现前主动提示一次是否用 Ardot/Figma 出线框→高保真；纯后端/数据逻辑/单点修复 → 说明理由直接继续；存量页面纯样式或结构调整不触发。
 - **Phase 3 并行开发**：前后端按 Spec 实现，每模块自检 `lint→type-check→test→fix`（≤3 轮）。门禁：代码组织（分层/≤300行/入口零业务）+ emoji 扫描 + UI 视觉检查（19 项 + P0）+ 联调。
 - **Phase 4 测试交付**：QA 反作弊门→冒烟→功能→回归→安全(OWASP)→失效模式 6 类→生产就绪评级（7×3，未达 Silver 不交付商业生产）。**P0 缺陷必须归零**才部署。运维部署+验证（health+核心流+回滚）。交付包自包含（README+部署配置+.env.example+DEPLOY.md+TEST_REPORT.md+USER_GUIDE.md）。
@@ -328,13 +328,19 @@ evidence: [{artifact_ref, line, 说明}]
 - [ ] QA：P0 = 0，冒烟通过，反作弊门通过，生产就绪 ≥ Silver
 - [ ] 交付包自包含，health 可达，核心用户流程走通，回滚方案就绪
 
-### Track B / C 交付（增量）
-- [ ] 增量需求卡 / Bug 描述已确认，范围清晰
+### Track C 交付（BugFix 轻量清单）
+- [ ] 修复说明已写清：根因 + 改了什么 + 为什么
+- [ ] 该场景已固化为回归用例（防止同一问题复发）
+- [ ] 最小变更落地，未破坏既有功能（回归率 = 0）
+- [ ] 本地 commit 完成（提交纪律见 Git 纪律段）
+
+### Track B 交付（增量）
+- [ ] 增量需求卡已确认，范围清晰
 - [ ] 增量设计不破坏既有契约（openapi / design-tokens 兼容）
 - [ ] 最小变更落地，未涉及的旧功能未被破坏（回归率 = 0）
 - [ ] QA：P0 = 0，反作弊门通过，智能路由 ≤2 轮封顶
 - [ ] 生产就绪 ≥ Silver（新功能/修复达对应档）
-- [ ] 发布：灰度观察 / 监控告警 / 备份回滚就绪
+- [ ] 发布：灰度观察 / 监控告警 / 备份回滚就绪（**小迭代可豁免灰度项，由主控按变更面裁决**）
 
 ### 通用
 - [ ] OPEN-DECISIONS 全部关闭或明确标注遗留
@@ -376,7 +382,8 @@ evidence: [{artifact_ref, line, 说明}]
 |------|----------------|---------------|
 | WorkBuddy / CodeBuddy | `~/.workbuddy/skills/software-dev-team/` | `{技能根}/memory/` |
 | Codex | `~/.codex/skills/software-dev-team/` | 同上 |
-| Cursor | `~/.cursor/skills-cursor/software-dev-team/` | 同上 |
+| Cursor | `~/.cursor/skills/software-dev-team/` | 同上 |
+| kimi-code | `~/.kimi-code/skills/software-dev-team/` | 同上 |
 | ZCode | `~/.zcode/skills/software-dev-team/` | 同上 |
 | Trae | 用户导入时选择的目录 | 同上 |
 

@@ -1,7 +1,7 @@
 # 软件开发团队 — software-dev-team
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.0.0-green.svg)](SKILL.md)
+[![Version](https://img.shields.io/badge/version-2.1.2-green.svg)](SKILL.md)
 
 一个面向 AI 编程助手的 **软件开发团队 Skill**——项目总监统筹 7 位领域专家（产品经理 / 首席架构师 / UI设计师 / 前端工程师 / 后端工程师 / 测试工程师 / 运维工程师）。**既能从一句话想法做 MVP 快速开发与原型验证（端到端交付可运行可部署产品），又能持续做产品迭代、功能扩展与工程维护（增量开发 / 缺陷修复 / 灰度发布 / 长期运维）。** 阶段门禁 + 团队级 P0 反 AI 规则，自包含、不依赖任何其他 Skill。
 
@@ -97,7 +97,7 @@ git clone https://github.com/genapohub/software-dev-team.git ~/.zcode/skills/sof
 ### Cursor
 ```bash
 # 克隆到 skills 目录
-git clone https://github.com/genapohub/software-dev-team.git ~/.cursor/skills-cursor/software-dev-team
+git clone https://github.com/genapohub/software-dev-team.git ~/.cursor/skills/software-dev-team
 ```
 
 重启 Cursor客户端 后自动发现。也可以在对话中输入 `$software-dev-team` 手动调用。
@@ -172,7 +172,9 @@ Phase 4 测试交付（P0 归零 → 部署 → 交付包）
 
 ## 来源与致谢
 
-本技能承载 WorkBuddy「软件开发团队」专家包 v2.1.0（大湾区靓仔 × 7 专家团队）的完整方法论，2026-09-06 整理为独立技能；2026-09-25 融合 WorkBuddy「软件开发团队 software-company」专家，补齐增量开发 / 缺陷修复 / 测试智能路由 / 产品生命周期闭环，升级为软件开发团队 v2.0.0。工程纪律部分源自该专家包内嵌的 UmaDev 知识库方法论（MIT License，详见 `references/03-工程纪律与自检.md`）。内容剔除多 Agent 环境专属机制（Team spawn / SendMessage / IMA MCP），适配多代理与单代理两种执行模式。融合溯源见 `references/expert-distill/software-company-蒸馏.md`。
+本技能承载 WorkBuddy「软件开发团队」专家包 v2.1.0（大湾区靓仔 × 7 专家团队）的完整方法论，2026-09-06 整理为独立技能；2026-09-25 融合 WorkBuddy「软件开发团队 software-company」专家，补齐增量开发 / 缺陷修复 / 测试智能路由 / 产品生命周期闭环，升级为软件开发团队 v2.1.2。工程纪律部分源自该专家包内嵌的 UmaDev 知识库方法论（MIT License，详见 `references/03-工程纪律与自检.md`）。内容剔除多 Agent 环境专属机制（Team spawn / SendMessage / IMA MCP），适配多代理与单代理两种执行模式。融合溯源见 `references/expert-distill/software-company-蒸馏.md`。
+
+**2.1.x 变更摘要**：子代理红线（禁 git 写/禁嵌套委派/禁共享 TodoList）与 Git 授权纪律（push 需明确发话）；UI 设计稿分流规则（新页面/新交互提示出稿，纯后端不触发）；收尾决策面板（结论先行 + 待拍板清单）；Track C 四阶段根因定位（复现→假设→验证→修复）；记忆先读后写入库纪律；12 项一致性修复（代码围栏闭合、Track B/C 路由与门禁拆分、悬空引用、跨平台路径、模式 B 注解、Spec 章数口径、RICE 单位、旧代号清理、description 压缩）。
 
 ## 许可
 

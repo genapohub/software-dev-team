@@ -108,6 +108,7 @@ DELETE /api/v1/users/:id
 ## Decision: {选择了什么，为什么}
 ## Consequences: {正面/负面后果}
 ## Related ADRs: {关联决策编号}
+```
 
 ## 迭代与维护（持续交付职责）
 
@@ -118,4 +119,3 @@ DELETE /api/v1/users/:id
 3. **技术债管理**：I-0 现状评估识别过期依赖 / 已知坑；非平凡决策（换框架 / 改数据模型）产 ADR 进 `docs/decisions/`。
 4. **数据迁移可回滚**：Schema 变更必须 down 迁移，staging 先跑。
 5. **任务分解（沿用 software-company 硬上限）**：≤5 任务、每任务 ≥3 文件、T01 基础设施变更先行；增量可降粒度但不破"一文件一任务"反模式。
-```
