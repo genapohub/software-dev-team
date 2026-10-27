@@ -8,9 +8,7 @@ __pycache__/
 *.py[cod]
 node_modules/
 
-# 技能记忆区：仅 README 骨架入库；MEMORY.md / project-tracker.md 为按副本运行期独立写入的数据，
-# 不入库（首次调用自动创建），避免多副本 git pull 冲突；日志与归档同样不提交
-memory/MEMORY.md
-memory/project-tracker.md
+# 技能记忆区：MEMORY.md / project-tracker.md 入库随仓库携带（软链单副本，无多副本 pull 冲突）；
+# 仅日志与冷归档不提交（运行期产物，量大且可重建）
 memory/archive/
 memory/????-??-??.md
